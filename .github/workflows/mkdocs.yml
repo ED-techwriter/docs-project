@@ -1,3 +1,9 @@
 plugins:
   - search
   - mkdocstrings
+  - pdf-export
+  - i18n:
+      default_language: ru
+      languages:
+        ru: Русский
+        en: English
