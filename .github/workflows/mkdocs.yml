@@ -1,0 +1,17 @@
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: sphinx
+  - i18n:
+      docs_structure: folder          # ← Обязательно для docs/ru/, docs/en/
+      languages:
+        - locale: ru
+          default: true               # ← Заменяет старый default_language
+          name: Русский
+          build: true
+        - locale: en
+          name: English
+          build: true

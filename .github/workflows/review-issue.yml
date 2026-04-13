@@ -1,0 +1,15 @@
+name: Create Review Issue
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  create_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create review issue
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Review required for PR #${{ github.event.pull_request.number }}"
+          content-filepath: .github/review_template.md

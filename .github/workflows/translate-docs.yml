@@ -1,0 +1,39 @@
+name: Auto-Translate Documentation
+on:
+  push:
+    paths:
+      - 'docs/ru/**'
+    branches: [main, master]
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install translate-md
+
+      - name: Translate ru → en
+        run: |
+          # translate-md по умолчанию использует бесплатный LibreTranslate
+          # Для стабильности укажите свой инстанс или API-ключ:
+          export LIBRETRANSLATE_URL="https://libretranslate.de"
+          translate-md docs/ru docs/en --to en
+
+      - name: Commit translated files
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add docs/en/
+          git diff --staged --quiet && exit 0
+          git commit -m "docs: auto-translate ru → en [skip ci]"
+          git push
