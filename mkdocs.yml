@@ -1,1 +1,48 @@
-site_name: My Docs
+site_name: Портфолио технического писателя
+site_url: https://ED-techwriter.github.io/ED-techwriter-portfolio/
+site_description: Примеры документации 
+site_author: Эллина Даниелян
+
+repo_name: ED-techwriter/ED-techwriter-portfolio
+repo_url: https://github.com/ED-techwriter/ED-techwriter-portfolio
+edit_url: edit/main/docs
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - content.code.copy
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ED-techwriter
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/ellina-danielian-ab54a8105/
+
+nav:
+  - 🏠 Home / Главная: index.md
+  - 📘 API Reference / API:
+      - Overview / Обзор: api/index.md
+      - Authentication / Аутентификация: api/authentication.md
+  - 🧑‍💻 Guides / Гайды:
+      - Quickstart: guides/quickstart.md
+      
+plugins:
+  - search:
+      lang:
+        - ru
+        - en
+        
+markdown_extensions:
+  - admonition
+  - codehilite
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
