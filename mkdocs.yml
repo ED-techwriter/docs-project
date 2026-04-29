@@ -14,7 +14,7 @@ theme:
     accent: indigo
     
   features:
-    - navigation.tabs
+    - navigation.expand
     - navigation.top
     - content.code.copy
 
