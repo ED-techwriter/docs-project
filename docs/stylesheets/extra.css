@@ -1,0 +1,16 @@
+@media screen and (max-width: 76.234375em) {
+  [data-md-component="sidebar"] {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    box-shadow: none !important;
+  }
+
+  .md-header__button[for="__drawer"] {
+    display: none !important;
+  }
+ 
+  .md-content {
+    margin-left: 15.2rem !important;
+  }
+}
